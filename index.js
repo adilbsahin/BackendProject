@@ -1,9 +1,28 @@
-const http = require('http');
-const server = http.createServer((req, res) => {
- res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'}); 
- res.write('Merhaba Dünya!');
- res.end();
+var http = require("http");
+var fs = require("fs");
+var server = http.createServer((req, res) => {
+    if (req.url == "") {
+        fs.readFile("index.html", (err, html) => {
+            res.write(html);
+            res.end();
+        });
+        
+    }
+    else if (req.url == "/urunler") {
+
+        fs.readFile("urunler.html", (err, html) => {
+            res.write(html);
+            res.end();
+        });
+    }
+    else {
+        fs.readFile("404.html", (err, html) => {
+            res.write(html);
+            res.end();
+        });
+    }
 });
+
 server.listen(3000, () => {
- console.log('xd');
+    console.log("node.js server at port 3000");
 });
