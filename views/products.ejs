@@ -14,6 +14,12 @@
     <%= urunler[0].price %>
     </p>
 
+    <ul>
+        <% urunler.forEach(urun => { %>
+            <li><%= urun.name %> - <%= urun.price %> </li>
+        <% }) %>
+    </ul>
+
 </body>
 
 </html>
