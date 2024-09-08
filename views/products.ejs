@@ -16,7 +16,12 @@
 
     <ul>
         <% urunler.forEach(urun => { %>
-            <li><%= urun.name %> - <%= urun.price %> </li>
+            <% if (urun.price >= 20000 && urun.ishere) { %>
+                <li>
+                    <%= urun.name %> - <%= urun.price %>
+                </li>
+                
+            <% } %>    
         <% }) %>
     </ul>
 
