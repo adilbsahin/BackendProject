@@ -5,7 +5,7 @@ app.set("view engine", "ejs");
 
 const data = [
     { id: 1, name: "bmw", price: 10000, ishere: true},
-    { id: 2, name: "mercedes", price: 20000, ishere: false},
+    { id: 2, name: "mercedes", price: 20000, ishere: true},
     { id: 3, name: "audi", price: 30000, ishere: true}
 ]
 
