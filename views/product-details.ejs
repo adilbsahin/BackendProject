@@ -8,7 +8,15 @@
 </head>
 
 <body>
-    <h1>urun detay</h1>
+    <h1><%= name %></h1>
+    <p>fiyat: <%= price %></p>
+    <p>
+        <% if (ishere) { %>
+         <span>ürün satışta</span>
+         <% } else { %>
+         <span>ürün satışta değil</span>
+        <% } %>
+    </p>
 </body>
 
 </html>

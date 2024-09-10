@@ -12,7 +12,8 @@ const data = [
 //routes
 
 app.use("/products/:id/", function (req, res) {
-    res.render("product-details");
+    const urun = data.find(u => u.id == req.params.id)
+    res.render("product-details", urun);
 });
 
 app.use("/products", function (req, res) {
