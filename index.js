@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 
 app.set("view engine", "ejs");
+
 app.use(express.static('public'));
+app.use(express.static('node_modules'));
 
 const data = [
-    { id: 1, name: "bmw", price: 10000, ishere: true, imageUrl: "3.jpeg" },
-    { id: 2, name: "mercedes", price: 20000, ishere: true, imageUrl: "1.jpeg" },
-    { id: 3, name: "audi", price: 30000, ishere: true, imageUrl: "2.jpeg" }
+    { id: 1, name: "bmw", price: 10000, ishere: true, isHome: true, imageUrl: "3.jpeg" },
+    { id: 2, name: "mercedes", price: 20000, ishere: true, isHome: false, imageUrl: "1.jpeg" },
+    { id: 3, name: "audi", price: 30000, ishere: true, isHome: true, imageUrl: "2.jpeg" }
 ]
 
 //routes
@@ -24,7 +26,9 @@ app.use("/products", function (req, res) {
 });
 
 app.use("/", function (req, res) {
-    res.render("index");
+    res.render("index", {
+        urunler: data
+    });
 });
 
 app.listen(3000, () => {

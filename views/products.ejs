@@ -4,29 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>urunler</h1>
-    <p>
-    <%= urunler[0].name %>
-    <%= urunler[0].price %>
-    </p>
+    
+    <div class="container mt-3">
+        <h1>Ürünler</h1>
+        <div class="row">
+            <div class="col-12">
+              <% urunler.forEach(urun => { %>
 
-    <ul>
-        <% urunler.forEach(urun => { %>
-            <% if (urun.price >= 10000 && urun.ishere == true) { %>
-                <li>
-                    <a href="/products/<%= urun.id %>">
-                        <%= urun.name %> - <%= urun.price %>
-                    </a>                   
-                </li>
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/images/<%= urun.imageUrl %>" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="/products/<%= urun.id %>">
+                                        <%= urun.name %>
+                                    </a>                                    
+                                </h5>
+                                <p class="cart-text"><%= urun.price %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              <% }) %>
                 
-            <% } %>    
-        <% }) %>
-    </ul>
 
+            </div>
+        </div>
+    </div>
+    
 </body>
 
 </html>
